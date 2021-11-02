@@ -16,4 +16,70 @@ html {
   font-size: 62.5%;
   overflow-x: hidden;
 }
+
+.menu {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (minmax(3, 1fr))[auto-fit];
+      grid-template-columns: repeat(auto-fit, minmax(3, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .card--img {
+  width: 30rem;
+  height: auto;
+  position: relative;
+}
+
+.card .card--img img {
+  width: 100%;
+  height: 100%;
+}
+
+.card .card--addChart {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: #3DADDB;
+  color: #fff;
+  font-weight: bold;
+  font-size: 2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.card .card--desc span {
+  font-size: 1.5rem;
+}
+
+.card .card--desc h1 {
+  font-size: 2rem;
+}
 /*# sourceMappingURL=style.css.map */
