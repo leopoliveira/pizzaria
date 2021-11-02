@@ -3,9 +3,17 @@
   padding: 0;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
+  text-transform: capitalize;
+  text-decoration: none;
+  list-style: none;
+  outline: none;
+  border: none;
+  -webkit-transition: all .2s linear;
+  transition: all .2s linear;
 }
 
 html {
   font-size: 62.5%;
+  overflow-x: hidden;
 }
 /*# sourceMappingURL=style.css.map */
