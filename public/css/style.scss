@@ -1,3 +1,10 @@
+// VARIÁVEIS CSS
+
+$card-bg: #BCCC9A;
+$body-bg: #D1E8E4;
+$purple: #C37B89;
+$orange: #D57A66;
+
 // INÍCIO CONFIGURAÇÕES INICIAIS
 
 * {
@@ -12,10 +19,9 @@
     transition: all .2s linear;
 }
 
-@mixin grid($val) {
+@mixin grid($cols) {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fit, minmax(calc(100%/#{$cols}), 1fr));
 }
 
 @mixin flex ($direction: row) {
@@ -30,50 +36,108 @@ html {
     overflow-x: hidden;
 }
 
-$blue: #3DADDB;
+body {
+    background-color: $body-bg;
+}
 
 // FIM CONFIGURAÇÕES INICIAIS
+
+.title {
+    h1 {
+        font-size: 3rem;
+        font-weight: bold;
+        margin: 2rem;
+    }
+}
 
 // INÍCIO SECTION MENU
 
 .menu {
-    @include grid(3);
+    width: 100vw;
+    @include flex();
+    flex-wrap: wrap;
 }
 
 .card {
     @include flex(column);
+    background-color: $card-bg;
+    border-radius: 3rem;
+    margin: 1.5rem;
+    height: 40rem;
+    flex: 1 1 20%;
 
     .card--img {
         width: 30rem;
-        height: auto;
+        height: 30rem;
         position: relative;
 
         img {
             width: 100%;
             height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .card--addChart {
+            cursor: pointer;
+            width: 4.5rem;
+            height: 4.5rem;
+            border-radius: 50%;
+            background-color: $purple;
+            color: #fff;
+            font-weight: bold;
+            font-size: 2rem;
+            @include flex();
+            position: absolute;
+            bottom: -1rem; left: 44%;
+
+            &:hover {
+                background-color: $orange;
+            }
         }
     }
 
-    .card--addChart {
-        width: 3rem;
-        height: 3rem;
-        border-radius: 50%;
-        background-color: $blue;
-        color: #fff;
-        font-weight: bold;
-        font-size: 2rem;
-        @include flex();
-    }
-
     .card--desc {
+        @include flex(column);
+
         span {
-            font-size: 1.5rem;
+            font-size: 1.6rem;
+            margin-top: 1.2rem;
         }
 
         h1 {
             font-size: 2rem;
+            margin: 1rem 0;
+        }
+
+        p {
+            padding: 0 1rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+            text-align: center;
         }
     }
 }
 
 // FIM SECTION MENU
+
+// INÍCIO SECTION MENU COMPRAS
+
+.mnu-chart {
+    width: 45rem;
+    height: 100vh;
+    position: fixed;
+    top: 0; right: 0;
+    background-color:rgb(104, 236, 214);
+    padding: 1.5rem;
+
+    h1 {
+        font-size: 3rem;
+    }
+
+    .produtos-qtde {
+
+    }
+}
+
+// FIM SECTION MENU COMPRAS

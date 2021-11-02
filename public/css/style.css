@@ -17,12 +17,33 @@ html {
   overflow-x: hidden;
 }
 
+body {
+  background-color: #D1E8E4;
+}
+
+.title h1 {
+  font-size: 3rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+
 .menu {
-  display: -ms-grid;
-  display: grid;
-  -ms-grid-columns: (minmax(3, 1fr))[auto-fit];
-      grid-template-columns: repeat(auto-fit, minmax(3, 1fr));
-  gap: 1.5rem;
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .card {
@@ -39,24 +60,36 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  background-color: #BCCC9A;
+  border-radius: 3rem;
+  margin: 1.5rem;
+  height: 40rem;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 20%;
+          flex: 1 1 20%;
 }
 
 .card .card--img {
   width: 30rem;
-  height: auto;
+  height: 30rem;
   position: relative;
 }
 
 .card .card--img img {
   width: 100%;
   height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -o-object-position: center;
+     object-position: center;
 }
 
-.card .card--addChart {
-  width: 3rem;
-  height: 3rem;
+.card .card--img .card--addChart {
+  cursor: pointer;
+  width: 4.5rem;
+  height: 4.5rem;
   border-radius: 50%;
-  background-color: #3DADDB;
+  background-color: #C37B89;
   color: #fff;
   font-weight: bold;
   font-size: 2rem;
@@ -73,13 +106,59 @@ html {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  position: absolute;
+  bottom: -1rem;
+  left: 44%;
+}
+
+.card .card--img .card--addChart:hover {
+  background-color: #D57A66;
+}
+
+.card .card--desc {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .card .card--desc span {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
+  margin-top: 1.2rem;
 }
 
 .card .card--desc h1 {
   font-size: 2rem;
+  margin: 1rem 0;
+}
+
+.card .card--desc p {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.mnu-chart {
+  width: 45rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: #68ecd6;
+  padding: 1.5rem;
+}
+
+.mnu-chart h1 {
+  font-size: 3rem;
 }
 /*# sourceMappingURL=style.css.map */
