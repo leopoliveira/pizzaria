@@ -1,9 +1,26 @@
+// INÍCIO CONFIGURAÇÕES INICIAIS
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    text-transform: capitalize;
+    text-decoration: none;
+    list-style: none;
+    outline: none;
+    border: none;
+    transition: all .2s linear;
+}
+
+@mixin grid($val) {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax($val, 1fr));
+    gap: 1.5rem;
 }
 
 html {
     font-size: 62.5%;
+    overflow-x: hidden;
 }
+
+// FIM CONFIGURAÇÕES INICIAIS
