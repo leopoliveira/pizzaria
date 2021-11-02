@@ -148,17 +148,90 @@ body {
   text-align: center;
 }
 
+hr {
+  height: .2rem;
+  background-color: #C37B89;
+  margin: 1rem;
+}
+
 .mnu-chart {
   width: 45rem;
   height: 100vh;
   position: fixed;
   top: 0;
   right: 0;
-  background-color: #68ecd6;
+  background-color: #8ae9d9;
   padding: 1.5rem;
 }
 
 .mnu-chart h1 {
   font-size: 3rem;
+  margin: 1.5rem;
+}
+
+.mnu-chart .produtos-qtde {
+  font-size: 2.2rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.mnu-chart .produtos-qtde span {
+  margin: 1.5rem;
+}
+
+.mnu-chart .produtos-qtde .produt-qtde {
+  width: 10rem;
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  background-color: #eee;
+}
+
+.mnu-chart .produtos-totais .subtotal, .mnu-chart .produtos-totais .desconto {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1.5rem;
+  font-size: 1.9rem;
+}
+
+.mnu-chart .produtos-totais .total {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 1.5rem;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.mnu-chart .btn-finaliza {
+  margin: 2.5rem 0;
+}
+
+.mnu-chart .btn-finaliza button {
+  cursor: pointer;
+  padding: 2rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+  width: 100%;
+  color: #fff;
+  background-color: #C37B89;
+}
+
+.mnu-chart .btn-finaliza button:hover {
+  background-color: #D57A66;
+  -webkit-transition: all .5s linear;
+  transition: all .5s linear;
 }
 /*# sourceMappingURL=style.css.map */

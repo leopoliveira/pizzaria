@@ -123,19 +123,81 @@ body {
 
 // INÍCIO SECTION MENU COMPRAS
 
+hr {
+    height: .2rem;
+    background-color: $purple;
+    margin: 1rem;
+}
+
 .mnu-chart {
     width: 45rem;
     height: 100vh;
     position: fixed;
     top: 0; right: 0;
-    background-color:rgb(104, 236, 214);
+    background-color: #8ae9d9;
     padding: 1.5rem;
 
     h1 {
         font-size: 3rem;
+        margin: 1.5rem;
     }
 
     .produtos-qtde {
+        font-size: 2.2rem;
+        display: flex;
+        justify-content: space-between;
+
+        span {
+            margin: 1.5rem;
+        }
+
+        .produt-qtde {
+            width: 10rem;
+            font-size: 2rem;
+            padding: 0.5rem;
+            border-radius: 1rem;
+            background-color: #eee;
+        }
+    }
+
+    .produtos-totais {
+
+        .subtotal, .desconto {
+            display: flex;
+            justify-content: space-between;
+            margin: 1.5rem;
+            font-size: 1.9rem;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            margin: 1.5rem;
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+
+    }
+
+    .btn-finaliza {
+
+        margin: 2.5rem 0;
+
+        button {
+            cursor: pointer;
+            padding: 2rem;
+            border-radius: 1rem;
+            font-size: 2rem;
+            font-weight: bold;
+            width: 100%;
+            color: #fff;
+            background-color: $purple;
+
+            &:hover {
+                background-color: $orange;
+                transition: all .5s linear;
+            }
+        }
 
     }
 }
