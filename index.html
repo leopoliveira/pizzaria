@@ -1,140 +1,97 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8" />
+    <title>Curso de JavaScript</title>
+    <link rel="stylesheet" href="style.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- FAVICON -->
-
-    <link rel="shortcut icon" href="/public/images/favicon.ico">
-
-    <!-- LINK CSS -->
-
-    <link rel="stylesheet" href="public/css/style.css">
-
-    <title>WR Pizzaria</title>
+    <link href="https://fonts.googleapis.com/css?family=Hepta+Slab:400,700|Lato:400,700&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
-
+    <div class="models">
+        <div class="pizza-item">
+            <a href="">
+                <div class="pizza-item--img"><img src="" /></div>
+                <div class="pizza-item--add">+</div>
+            </a>
+            <div class="pizza-item--price">R$ --</div>
+            <div class="pizza-item--name">--</div>
+            <div class="pizza-item--desc">--</div>
+        </div>
+        <div class="cart--item">
+            <img src="" />
+            <div class="cart--item-nome">--</div>
+            <div class="cart--item--qtarea">
+                <button class="cart--item-qtmenos">-</button>
+                <div class="cart--item--qt">1</div>
+                <button class="cart--item-qtmais">+</button>
+            </div>
+        </div>
+    </div>
+    <header>
+        <div class="menu-openner"><span>0</span>🛒</div>
+    </header>
     <main>
-
-        <section class="title"><h1>Restaurante WR</h1></section>
-
-        <section class="menu">
-
-            <div class="card">
-
-                <div class="card--img">
-                    <img src="/public/images/pizzas/aModa.png" alt="Pizza à moda imagem">
-
-                    <div class="card--addChart">
-                        +
-                    </div>
-                </div>  
-
-                <div class="card--desc">
-                    <span>R$35,90</span>
-                    <h1>À moda</h1>
-                    <p>Muçarela, presunto, pepperoni, picles, calabresa e pequenos e deliciosos pedaços de palmito da montanha.</p>
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="card--img">
-                    <img src="/public/images/pizzas/omeletei.png" alt="Pizza omeletei imagem">
-
-                    <div class="card--addChart">
-                        +
-                    </div>
-                </div>  
-
-                <div class="card--desc">
-                    <span>R$46,90</span>
-                    <h1>Omeletei</h1>
-                    <p>Ovos e mais ovos. Direto da granja WR.</p>
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="card--img">
-                    <img src="/public/images/pizzas/pepperoni.png" alt="Pizza de pepperoni imagem">
-
-                    <div class="card--addChart">
-                        +
-                    </div>
-                </div>  
-
-                <div class="card--desc">
-                    <span>R$45,90</span>
-                    <h1>Pepperoni</h1>
-                    <p>Muçarela, pepperoni fracês, alfaces da serra e deliciosos tomates russos.</p>
-                </div>
-
-            </div>
-
-            <div class="card">
-
-                <div class="card--img">
-                    <img src="/public/images/pizzas/quatroQueijos.png" alt="Pizza de quatro queijos imagem">
-
-                    <div class="card--addChart">
-                        +
-                    </div>
-                </div>  
-
-                <div class="card--desc">
-                    <span>R$99,90</span>
-                    <h1>Quatro queijos</h1>
-                    <p>Quatro queijos finos: Mongol, Maldavo, Húngaro e Escandivano</p>
-                </div>
-
-            </div>
-
-        </section>
-
-        <section class="modal">
-
-        </section>
-
-        <aside class="mnu-chart">
-            <h1>Compras:</h1>
-            <div class="produtos-qtde">
-                <span class=""><img src="" alt="" id="pizza-img">Pizza Calabresa (G)</span>
-                <span><input type="number" class="produt-qtde r" min="1" step="1" value="1"></span>
-            </div>
-            <hr>
-            <div class="produtos-totais">
-                <div class="subtotal">
-                    <span class="">Subtotal</span>
-                    <span class="" id="subtotal">R$20,00</span>
-                </div>
-                <hr>
-                <div class="desconto">
-                    <span class="">Desconto (-10%)</span>
-                    <span class="r" id="desconto">R$2,00</span>
-                </div>
-                <hr>
-                <div class="total">
-                    <span class="">Total</span>
-                    <span class="" id="total">R$18,00</span>
-                </div>
-            </div>
-            <div class="btn-finaliza"><button type="submit">Finalizar Compra</button></div>
-        </aside>
+        <h1>Pizzas</h1>
+        <div class="pizza-area"></div>
     </main>
+    <aside>
+        <div class="cart--area">
+            <div class="menu-closer">❌</div>
+            <h1>Suas Pizzas</h1>
+            <div class="cart"></div>
+            <div class="cart--details">
+                <div class="cart--totalitem subtotal">
+                    <span>Subtotal</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cart--totalitem desconto">
+                    <span>Desconto (-10%)</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cart--totalitem total big">
+                    <span>Total</span>
+                    <span>R$ --</span>
+                </div>
+                <div class="cart--finalizar">Finalizar a compra</div>
+            </div>
+        </div>
+    </aside>
+    <div class="pizzaWindowArea">
+        <div class="pizzaWindowBody">
+            <div class="pizzaInfo--cancelMobileButton">Voltar</div>
+            <div class="pizzaBig">
+                <img src="" />
+            </div>
+            <div class="pizzaInfo">
+                <h1>--</h1>
+                <div class="pizzaInfo--desc">--</div>
+                <div class="pizzaInfo--sizearea">
+                    <div class="pizzaInfo--sector">Tamanho</div>
+                    <div class="pizzaInfo--sizes">
+                        <div data-key="0" class="pizzaInfo--size">PEQUENA <span>--</span></div>
+                        <div data-key="1" class="pizzaInfo--size">MÉDIO <span>--</span></div>
+                        <div data-key="2" class="pizzaInfo--size selected">GRANDE <span>--</span></div>
+                    </div>
+                </div>
+                <div class="pizzaInfo--pricearea">
+                    <div class="pizzaInfo--sector">Preço</div>
+                    <div class="pizzaInfo--price">
+                        <div class="pizzaInfo--actualPrice">R$ --</div>
+                        <div class="pizzaInfo--qtarea">
+                            <button class="pizzaInfo--qtmenos">-</button>
+                            <div class="pizzaInfo--qt">1</div>
+                            <button class="pizzaInfo--qtmais">+</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="pizzaInfo--addButton">Adicionar ao carrinho</div>
+                <div class="pizzaInfo--cancelButton">Cancelar</div>
+            </div>
+        </div>
+    </div>
 
-
-    <!-- SCRIPTS -->
-
-    <script src="/public/js/main.js"></script>
-    
+    <script type="text/javascript" src="pizzas.js"></script>
+    <script type="text/javascript" src="script.js"></script>
 </body>
-
 </html>
