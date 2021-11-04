@@ -1,9 +1,9 @@
 let pizzaJson = [
-    {id:1, name:'Mussarela', img:'/public/images/pizza.png', sizes:['100g', '530g', '860g'], sizesPrice:["R$ 10,19", "R$ 16.19", "R$ 20.19"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
+    {id:1, name:'Muçarela', img:'/public/images/pizza.png', sizes:['100g', '530g', '860g'], sizesPrice:["R$ 10,19", "R$ 16.19", "R$ 20.19"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
     {id:2, name:'Calabresa', img:'/public/images/pizza2.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 8,00", "R$ 14.00", "R$ 18.00"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:3, name:'Quatro Queijos', img:'/public/images/pizza3.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 7,45", "R$ 13.45", "R$ 17.45"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:4, name:'Americana', img:'/public/images/pizza4.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 9,77", "R$ 15.77", "R$ 19.77"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:5, name:'Sorvete', img:'/public/images/pizza5.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 11,43", "R$ 18.43", "R$ 21.43"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:6, name:'Moda da Casa', img:'/public/images/pizza6.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 8,55", "R$ 14.55", "R$ 18.55"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
-    {id:7, name:'Chocolate', img:'/public/images/pizza7.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 12,36", "R$ 18.36", "R$ 22.36"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'}
+    {id:3, name:'Quatro Queijos', img:'/public/images/pizza3.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 7,50", "R$ 13.50", "R$ 17.50"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
+    {id:4, name:'Portuguesa', img:'/public/images/pizza4.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 9,99", "R$ 15.99", "R$ 19.99"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
+    {id:5, name:'À Moda da Casa', img:'/public/images/pizza6.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 8,50", "R$ 14.50", "R$ 18.50"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
+    {id:6, name:'Sorvete', img:'/public/images/pizza5.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 15,99", "R$ 23.99", "R$ 31.99"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'},
+    {id:7, name:'Chocolate', img:'/public/images/pizza7.png', sizes:['320g', '530g', '860g'], sizesPrice:["R$ 16,99", "R$ 24,99", "R$ 32,99"], description:'Descrição da pizza em mais de uma linha muito legal bem interessante'}
 ];

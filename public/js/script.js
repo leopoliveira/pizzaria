@@ -40,7 +40,7 @@ pizzaJson.map((item) => {
 
 // ------- MODAL -------
 
-// INÍCIO VERIFICAÇÃO DE ADIÇÃO DE PIZZA PARA ABRIR O MODAL
+// INÍCIO PREENCHIMENTO MODAL
 
 function modal(id) {
     let modal = elem(".pizzaWindowArea");
@@ -54,13 +54,16 @@ function modal(id) {
     modal.querySelector(".pizzaBig img").src = modalItem[0].img;
     modal.querySelector(".pizzaInfo h1").innerHTML = modalItem[0].name;
     modal.querySelector(".pizzaInfo--desc").innerHTML = modalItem[0].description;
-
+    modal.querySelectorAll(".pizzaInfo--size").forEach((item, index) => {
+        item.querySelector("span").innerHTML = modalItem[0].sizesPrice[index];
+    })
+    
     modal.style.display = "flex";
     modal.style.zIndex = 1000;
 
 };
 
-// FIM VERIFICAÇÃO DE ADIÇÃO DE PIZZA PARA ABRIR O MODAL
+// FIM PREENCHIMENTO MODAL
 
 // INÍCIO FECHA MODAL
 
