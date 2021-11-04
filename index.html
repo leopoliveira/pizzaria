@@ -19,9 +19,10 @@
 </head>
 <body>
     
+    <!-- INÍCIO MODELOS -->
     <div class="models">
         <div class="pizza-item">
-            <a href="">
+            <a href="" onclick="modal(this)">
                 <div class="pizza-item--img"><img src="" /></div>
                 <div class="pizza-item--add">+</div>
             </a>
@@ -39,6 +40,10 @@
             </div>
         </div>
     </div>
+
+    <!-- FIM MODELOS  -->
+
+    <!-- INÍCIO DO CÓDIGO -->
 
     <header>
         <div class="menu-openner"><span>0</span>🛒</div>
@@ -101,10 +106,12 @@
                     </div>
                 </div>
                 <div class="pizzaInfo--addButton">Adicionar ao carrinho</div>
-                <div class="pizzaInfo--cancelButton">Cancelar</div>
+                <div class="pizzaInfo--cancelButton" onclick="fechaModal()">Cancelar</div>
             </div>
         </div>
     </div>
+
+    <!-- FIM DO CÓDIGO -->
 
     <script type="text/javascript" src="public/js/pizzas.js"></script>
     <script type="text/javascript" src="public/js/script.js"></script>
