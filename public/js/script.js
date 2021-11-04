@@ -9,9 +9,12 @@ function elem(item) {
 
 // INÍCIO DECLARAÇÃO VARIÁVEIS
 
-let carItemQtde = elem(".cart--item--qt");
+let cartItemQtde = elem(".cart--item--qt");
 let cartItemMenos = elem(".cart--item-qtmenos");
 let cartItemMais = elem(".cart--item-qtmais");
+let pizzaItemQtde = elem(".pizzaInfo--qt");
+let pizzaItemMenos = elem(".pizzaInfo--qtmenos");
+let pizzaItemMais = elem(".pizzaInfo--qtmais");
 
 // FIM DECLARAÇÃO VARIÁVEIS
 
@@ -76,6 +79,22 @@ function fechaModal() {
 
 // FIM FECHA MODAL
 
+// INÍCIO + E - QUANTIDADE DE PRODUTO
+
+pizzaItemMenos.addEventListener("click", () => {
+    if(Number(pizzaItemQtde.innerHTML) > 0) {
+        pizzaItemQtde.innerHTML = Number(pizzaItemQtde.innerHTML) - 1;
+    } else {
+        pizzaItemQtde.innerHTML = 0;
+    }
+
+});
+
+pizzaItemMais.addEventListener("click", () => {
+    pizzaItemQtde.innerHTML = Number(pizzaItemQtde.innerHTML) + 1;
+});
+
+// FIM + E - QUANTIDADE DE PRODUTO
 
 
 // ------- CARRINHO DE COMPRAS
@@ -83,15 +102,15 @@ function fechaModal() {
 // INÍCIO + E - QUANTIDADE DE PRODUTO
 
 cartItemMenos.addEventListener("click", () => {
-    if(Number(carItemQtde.innerHTML) > 0) {
-        carItemQtde.innerHTML = Number(carItemQtde.innerHTML) - 1;
+    if(Number(cartItemQtde.innerHTML) > 0) {
+        cartItemQtde.innerHTML = Number(cartItemQtde.innerHTML) - 1;
     } else {
-        carItemQtde.innerHTML = 0;
+        cartItemQtde.innerHTML = 0;
     }
 });
 
 cartItemMais.addEventListener("click", () => {
-    carItemQtde.innerHTML = Number(carItemQtde.innerHTML) + 1;
+    cartItemQtde.innerHTML = Number(cartItemQtde.innerHTML) + 1;
 });
 
 // FIM + E - QUANTIDADE DE PRODUTO
