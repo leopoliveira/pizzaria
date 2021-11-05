@@ -174,3 +174,12 @@ cartItemMais.addEventListener("click", () => {
 });
 
 // FIM + E - QUANTIDADE DE PRODUTO
+
+// INÍCIO ABRE CARRINHO DE COMPRAS
+
+function abreCarrinho() {
+    let carrinhoArea = elem(".cart--area .cart--details");
+    carrinhoArea.style.width = "500px";
+};
+
+// FIM ABRE CARRINHO DE COMPRAS
