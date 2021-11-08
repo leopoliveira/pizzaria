@@ -9,10 +9,10 @@ function elem(item) {
 
 // INÍCIO DECLARAÇÃO VARIÁVEIS
 
-let cartItemQtde = elem(".cart--item--qt");
-let cartItemMenos = elem(".cart--item-qtmenos");
-let cartItemMais = elem(".cart--item-qtmais");
-let PIZZA_ITEM_QTDE = elem(".pizzaInfo--qt");
+// let cartItemQtde = elem(".cart--item--qt");
+// let cartItemMenos = elem(".cart--item-qtmenos");
+// let cartItemMais = elem(".cart--item-qtmais");
+let PIZZA_ITEM_QTDE = elem(".pizzaInfo--qt"); // Variável Global para guardar a quantidade de pizzas de um mesmo sabor selecionadas
 let PIZZA_ITEM_MENOS = elem(".pizzaInfo--qtmenos");
 let PIZZA_ITEM_MAIS = elem(".pizzaInfo--qtmais");
 let PIZZA_ID = 0; // Variável Global de identificação da pizza
@@ -212,15 +212,22 @@ function abreCarrinho() {
     let itens = elem(".cart");
     let json = pizzaJson; // Base de dados
 
+    // Fecha a tela logo após a inserção de produtos no banco
+    fechaModal();
+
     // Encontra a pizza selecionada
     json = json.filter((valor) => {
         return valor.id === PIZZA_ID;
     });
 
     // Insere os dados da pizzza na tela do carrinho
-    json.map(() => {
-
+    json.map((pizza) => {
+        models.querySelector("img").src = pizza.img;
+        models.querySelector(".cart--item-nome").innerHTML = pizza.name;
+        models.querySelector(".cart--item--qtarea .cart--item--qt").innerHTML = PIZZA_ITEM_QTDE.innerHTML;
     });
+
+    itens.appendChild(models);
 
     // Verifica se o carrinho de compras não está presente na tela.
     if(!(carrinhoArea.style.width === "500px")){
@@ -228,7 +235,7 @@ function abreCarrinho() {
 
         subTotal.innerHTML = PIZZA_VALOR;
 
-        desconto.innerHTML = PIZZA_VALOR * 0.1;
+        desconto.innerHTML = Number(subTotal.innerHTML) * 0.1;
 
         total.innerHTML = subTotal.innerHTML - desconto.innerHTML;
 
@@ -237,7 +244,7 @@ function abreCarrinho() {
     } else {
         subTotal.innerHTML = Number(subTotal.innerHTML) + PIZZA_VALOR;
 
-        desconto.innerHTML = PIZZA_VALOR * 0.1;
+        desconto.innerHTML = Number(subTotal.innerHTML) * 0.1;
 
         total.innerHTML = subTotal.innerHTML - desconto.innerHTML;
     };  
@@ -247,18 +254,27 @@ function abreCarrinho() {
 
 // INÍCIO + E - QUANTIDADE DE PRODUTO
 
-// Adiciona quantidade de pizzas
-cartItemMenos.addEventListener("click", () => {
-    if(Number(cartItemQtde.innerHTML) > 0) {
-        cartItemQtde.innerHTML = Number(cartItemQtde.innerHTML) - 1;
-    } else {
-        cartItemQtde.innerHTML = 0;
-    }
-});
-
-// Subtrai quantidade de pizzas
-cartItemMais.addEventListener("click", () => {
+// ADICIONA A QUANTIDADE DE PIZZAS
+ function cartMais(){
+    let cartItemQtde = document.querySelector(".cart .cart--item--qt");
     cartItemQtde.innerHTML = Number(cartItemQtde.innerHTML) + 1;
-});
+};
+
+// SUBTRAI A QUANTIDADE DE PIZZAS
+function cartMenos() {
+    let subTotal = elem(".subtotal span:last-child");
+    let desconto = elem(".desconto span:last-child");
+    let total = elem(".total span:last-child");
+    let cartItemQtde = elem(".cart .cart--item--qt");
+    let pizzaItem = elem(".cart .cart--item");
+    let itens = elem(".cart");
+
+    if(Number(cartItemQtde.innerHTML < 1 )){
+        cartItemQtde.innerHTML = 0;
+        itens.removeChild(pizzaItem);
+    } else {
+        cartItemQtde.innerHTML = Number(cartItemQtde.innerHTML) - 1;
+    }
+};
 
 // FIM + E - QUANTIDADE DE PRODUTO
