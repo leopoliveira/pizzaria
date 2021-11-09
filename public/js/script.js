@@ -9,14 +9,13 @@ function elem(item) {
 
 // INÍCIO DECLARAÇÃO VARIÁVEIS
 
-// let cartItemQtde = elem(".cart--item--qt");
-// let cartItemMenos = elem(".cart--item-qtmenos");
-// let cartItemMais = elem(".cart--item-qtmais");
 let PIZZA_ITEM_QTDE = elem(".pizzaInfo--qt"); // Variável Global para guardar a quantidade de pizzas de um mesmo sabor selecionadas
 let PIZZA_ITEM_MENOS = elem(".pizzaInfo--qtmenos");
 let PIZZA_ITEM_MAIS = elem(".pizzaInfo--qtmais");
 let PIZZA_ID = 0; // Variável Global de identificação da pizza
 let PIZZA_VALOR = 0; // Variável Global de valor da pizza
+let PIZZA_TAMANHO = 2; // Variável Global do tamanho da pizza 0. Pequena; 1. Média; 2. Grande
+let CARRINHO_ITENS = []; // Variável Global de itens presentes no carrinho de pedidos
 
 // FIM DECLARAÇÃO VARIÁVEIS
 
@@ -188,6 +187,8 @@ function mudaTamanho(obj){
 
     // Adiciona o select no tamanho clicado
     obj.classList.toggle("selected");
+
+    PIZZA_TAMANHO = id;
     
     pizzaValor.innerHTML = PIZZA_VALOR.toLocaleString("pt-BR", {
         style: "currency",
@@ -212,19 +213,34 @@ function abreCarrinho() {
     let itens = elem(".cart");
     let json = pizzaJson; // Base de dados
 
-    // Fecha a tela logo após a inserção de produtos no banco
-    fechaModal();
-
     // Encontra a pizza selecionada
     json = json.filter((valor) => {
         return valor.id === PIZZA_ID;
     });
 
-    // Insere os dados da pizzza na tela do carrinho
+    // Insere os dados da pizza na tela do carrinho
     json.map((pizza) => {
+        let identificador = PIZZA_ID+"#"+PIZZA_TAMANHO; //id#tamanho
+        let existeItem = CARRINHO_ITENS.findIndex((valor) => valor.identificador === identificador); // Busca pelo identificador no carrinho de compras
+        
         models.querySelector("img").src = pizza.img;
         models.querySelector(".cart--item-nome").innerHTML = pizza.name;
         models.querySelector(".cart--item--qtarea .cart--item--qt").innerHTML = PIZZA_ITEM_QTDE.innerHTML;
+
+        // Adiciona os dados da pizza no vetor do carrinho de compras
+        if(!(existeItem === - 1)){
+            CARRINHO_ITENS[existeItem].qtde = CARRINHO_ITENS[existeItem].qtde + Number(PIZZA_ITEM_QTDE.innerHTML);
+        } else {
+            CARRINHO_ITENS.push({
+                identificador, // Mesma coisa de identificador: identificador
+                id: PIZZA_ID,
+                tamanho: PIZZA_TAMANHO,
+                qtde: Number(PIZZA_ITEM_QTDE.innerHTML)
+            })
+        };
+
+        console.log(CARRINHO_ITENS)
+
     });
 
     itens.appendChild(models);
@@ -248,6 +264,9 @@ function abreCarrinho() {
 
         total.innerHTML = subTotal.innerHTML - desconto.innerHTML;
     };  
+
+    // Fecha a tela logo após a inserção de produtos no banco
+    fechaModal();
 };
 
 // FIM ABRE CARRINHO DE COMPRAS
@@ -269,11 +288,28 @@ function cartMenos() {
     let pizzaItem = elem(".cart .cart--item");
     let itens = elem(".cart");
 
-    if(Number(cartItemQtde.innerHTML < 1 )){
+    if(Number(cartItemQtde.innerHTML < 2 )){
         cartItemQtde.innerHTML = 0;
         itens.removeChild(pizzaItem);
+        // Procura a pizza para remover o preço do total
+        for(let valor of CARRINHO_ITENS){
+            if(valor.name === pizzaItem.querySelector(".cart--item-nome").innerHTML){
+                subTotal.innerHTML = Number(subTotal.innerHTML) - valor.priceUn;
+                desconto.innerHTML = Number(subTotal.innerHTML) * 0.1;
+                total.innerHTML = Number(subTotal.innerHTML) - Number(desconto.innerHTML);
+            }
+        };  
+
     } else {
         cartItemQtde.innerHTML = Number(cartItemQtde.innerHTML) - 1;
+        // Procura a pizza para remover o preço do total
+        for(let valor of CARRINHO_ITENS){
+            if(valor.name === pizzaItem.querySelector(".cart--item-nome").innerHTML){
+                subTotal.innerHTML = Number(subTotal.innerHTML) - valor.priceUn;
+                desconto.innerHTML = Number(subTotal.innerHTML) * 0.1;
+                total.innerHTML = Number(subTotal.innerHTML) - Number(desconto.innerHTML);
+            }
+        };
     }
 };
 
