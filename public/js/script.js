@@ -206,70 +206,73 @@ function mudaTamanho(obj){
 
 function abreCarrinho() {
     let carrinhoArea = elem("aside");
-    let subTotal = elem(".subtotal span:last-child");
-    let desconto = elem(".desconto span:last-child");
-    let total = elem(".total span:last-child");
-    let models = elem(".models .cart--item").cloneNode(true);
-    let itens = elem(".cart");
-    let json = pizzaJson; // Base de dados
+    let identificador = PIZZA_ID+"#"+PIZZA_TAMANHO; //id#tamanho
+    let existeItemIndex = CARRINHO_ITENS.findIndex((pizza) => pizza.identificador == identificador); // Busca pelo identificador no carrinho de compras
 
-    // Encontra a pizza selecionada
-    json = json.filter((valor) => {
-        return valor.id === PIZZA_ID;
-    });
-
-    // Insere os dados da pizza na tela do carrinho
-    json.map((pizza) => {
-        let identificador = PIZZA_ID+"#"+PIZZA_TAMANHO; //id#tamanho
-        let existeItem = CARRINHO_ITENS.findIndex((valor) => valor.identificador === identificador); // Busca pelo identificador no carrinho de compras
+    // Atualiza carrinho
+    if(existeItemIndex > -1){
+        CARRINHO_ITENS[existeItemIndex].qtde += Number(PIZZA_ITEM_QTDE.innerHTML);
         
-        models.querySelector("img").src = pizza.img;
-        models.querySelector(".cart--item-nome").innerHTML = pizza.name;
-        models.querySelector(".cart--item--qtarea .cart--item--qt").innerHTML = PIZZA_ITEM_QTDE.innerHTML;
-
-        // Adiciona os dados da pizza no vetor do carrinho de compras
-        if(!(existeItem === - 1)){
-            CARRINHO_ITENS[existeItem].qtde = CARRINHO_ITENS[existeItem].qtde + Number(PIZZA_ITEM_QTDE.innerHTML);
-        } else {
-            CARRINHO_ITENS.push({
-                identificador, // Mesma coisa de identificador: identificador
-                id: PIZZA_ID,
-                tamanho: PIZZA_TAMANHO,
-                qtde: Number(PIZZA_ITEM_QTDE.innerHTML)
-            })
-        };
-
-        console.log(CARRINHO_ITENS)
-
-    });
-
-    itens.appendChild(models);
-
-    // Verifica se o carrinho de compras não está presente na tela.
-    if(!(carrinhoArea.style.width === "500px")){
-        subTotal.innerHTML = 0;
-
-        subTotal.innerHTML = PIZZA_VALOR;
-
-        desconto.innerHTML = Number(subTotal.innerHTML) * 0.1;
-
-        total.innerHTML = subTotal.innerHTML - desconto.innerHTML;
-
-        carrinhoArea.style.width = "500px";
-
+        atualizarCarrinho(existeItemIndex);
     } else {
-        subTotal.innerHTML = Number(subTotal.innerHTML) + PIZZA_VALOR;
+        CARRINHO_ITENS.push({
+            identificador, // Mesma coisa de identificador: identificador
+            id: PIZZA_ID,
+            tamanho: PIZZA_TAMANHO,
+            qtde: Number(PIZZA_ITEM_QTDE.innerHTML)
+        });
 
-        desconto.innerHTML = Number(subTotal.innerHTML) * 0.1;
-
-        total.innerHTML = subTotal.innerHTML - desconto.innerHTML;
-    };  
-
+        adicionaCarrinho();
+    };
     // Fecha a tela logo após a inserção de produtos no banco
     fechaModal();
+
+    // Verifica se o carrinho de compras não está presente na tela.
+    if(CARRINHO_ITENS.length > 0){
+        carrinhoArea.classList.add("show");
+
+    } else {
+        carrinhoArea.classList.remove("show");
+    };  
+    
 };
 
 // FIM ABRE CARRINHO DE COMPRAS
+
+// INÍCIO ATUALIZA CARRINHO DE COMPRAS
+
+function atualizarCarrinho(itemIndex) {
+    let itens = elem(".cart");
+    let json = pizzaJson; // Base de dados
+
+    itens.innerHTML = ""; // Limpa o carrinho antes de atualizar
+
+    for(let item of CARRINHO_ITENS){
+        let pizzaItem = json.find((pizzaJson) => item.id === pizzaJson.id);
+        let models = elem(".models .cart--item").cloneNode(true);
+
+        models.querySelector("img").src = pizzaItem.img;
+        models.querySelector(".cart--item-nome").innerHTML = pizzaItem.name;
+        models.querySelector(".cart--item--qtarea .cart--item--qt").innerHTML = CARRINHO_ITENS[itemIndex].qtde;
+
+        itens.appendChild(models);
+    }
+};
+
+function adicionaCarrinho() {
+    let itens = elem(".cart");
+    let json = pizzaJson; // Base de dados
+    let pizzaItem = json.find((pizzaJson) => PIZZA_ID === pizzaJson.id);
+    let models = elem(".models .cart--item").cloneNode(true);
+
+    models.querySelector("img").src = pizzaItem.img;
+    models.querySelector(".cart--item-nome").innerHTML = pizzaItem.name;
+    models.querySelector(".cart--item--qtarea .cart--item--qt").innerHTML = CARRINHO_ITENS[CARRINHO_ITENS.length - 1].qtde;
+
+    itens.appendChild(models);
+};
+
+// FIM ATUALIZA CARRINHO DE COMPRAS
 
 // INÍCIO + E - QUANTIDADE DE PRODUTO
 
