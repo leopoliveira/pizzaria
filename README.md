@@ -1,5 +1,5 @@
 # Pizzaria + Carrinho de Compras (Mobile e Tablet/Desktop)
-<a taget="_blank" href="https://leopoliveira.github.io/pizzaria/">Testar Aplicação</a>
+<a href="https://leopoliveira.github.io/pizzaria/" taget="_blank">Testar Aplicação</a>
 Desafio sugerido pelo curso Dev. Fullstack da plataforma B7Web.<br>
 Créditos para o design do site e responsividade: Equipe <a taget="_blank" href="https://b7web.com.br/">B7Web.</a>
 
