@@ -234,7 +234,6 @@ function abreCarrinho() {
     // Verifica se o carrinho de compras não está presente na tela.
     if(CARRINHO_ITENS.length > 0){
         carrinhoArea.classList.add("show");
-
     } else {
         carrinhoArea.classList.remove("show");
     };  
@@ -246,6 +245,7 @@ function abreCarrinho() {
 // INÍCIO ATUALIZA CARRINHO DE COMPRAS
 
 function atualizarCarrinho() {
+    let carrinhoArea = elem("aside");
     let itens = elem(".cart");
     let cartTotals = elem(".cart--details");
     let json = pizzaJson; // Base de dados
@@ -260,10 +260,11 @@ function atualizarCarrinho() {
         cartTotals.querySelector(".cart--totalitem.subtotal span:last-child").innerHTML = "R$ 0.00";
         cartTotals.querySelector(".cart--totalitem.desconto span:last-child").innerHTML = "R$ 0.00";
         cartTotals.querySelector(".cart--totalitem.total span:last-child").innerHTML = "R$ 0.00";
+        mobileCartQtde.innerHTML = 0;
+        carrinhoArea.classList.remove("show");
     };
 
     for(let item in CARRINHO_ITENS){
-        console.log("TAMANHO DO CARRINHO NO FOR: "+CARRINHO_ITENS.length)
         let pizzaItem = json.find((pizzaJson) => CARRINHO_ITENS[item].id === pizzaJson.id);
         let models = elem(".models .cart--item").cloneNode(true);
 
@@ -299,7 +300,7 @@ function atualizarCarrinho() {
         itens.appendChild(models);
     }
 
-    elem(".menu-openner span").innerHTML = CARRINHO_ITENS.length;
+    mobileCartQtde.innerHTML = CARRINHO_ITENS.length;
 };
 
 // FIM ATUALIZA CARRINHO DE COMPRAS
@@ -357,7 +358,9 @@ function cartMenos() {
 elem("header .menu-openner").addEventListener("click", () => {
     let cart = elem("aside");
 
-    cart.classList.add("show");
+    if(CARRINHO_ITENS.length > 0) {
+        cart.classList.add("show");
+    };
 
     atualizarCarrinho();
 });
