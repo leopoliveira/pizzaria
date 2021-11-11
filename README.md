@@ -21,6 +21,9 @@ Desafio sugerido pelo curso Dev. Fullstack da plataforma B7Web.
 
 # TABLET/DESKTOP
 
+![desktop](https://user-images.githubusercontent.com/35302072/141216175-48f966f4-c437-4f4f-bb1c-b84a33887aad.PNG)
 
 
 # MOBILE
+
+![mobile](https://user-images.githubusercontent.com/35302072/141216182-6853c890-0b87-4446-95b5-450e7150592a.PNG)
