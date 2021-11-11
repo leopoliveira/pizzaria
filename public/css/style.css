@@ -26,6 +26,7 @@ header {
     align-items: center;
 }
 .menu-openner {
+    cursor: pointer;
     margin-right: 15px;
     font-size: 26px;
     background-color: #a9dcff;
@@ -365,6 +366,7 @@ h1 {
     }
     aside.show {
         width:auto;
+        left: 0;
     }
     .cart--area {
         width:100vw;
@@ -372,6 +374,7 @@ h1 {
 
     .menu-closer {
         display:block;
+        cursor: pointer;
     }
 
     .pizzaWindowArea {
